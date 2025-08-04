@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { peopleFromServer } from './data/people';
 import { Person } from './types/Person';
+import classNames from 'classnames';
 
 export const App: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -61,7 +62,11 @@ export const App: React.FC = () => {
             : 'No selected person'}
         </h1>
 
-        <div className="dropdown is-active">
+        <div
+          className={classNames('dropdown', {
+            'is-active': isFocused,
+          })}
+        >
           <div className="dropdown-trigger">
             <input
               type="text"
